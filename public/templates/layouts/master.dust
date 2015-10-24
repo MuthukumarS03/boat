@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>{+title /}</title>
+    
+        <link rel="stylesheet" href="{contextPath}/css/app.css">
+    
+    </head>
+    <body>
+
+        <div id="wrapper">
+            {+body /}
+        </div>
+
+        <script data-main="{contextPath}/js/app" src="{contextPath}/components/requirejs/require.js"></script>
+    
+    </body>
+</html>
