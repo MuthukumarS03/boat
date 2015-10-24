@@ -12,6 +12,9 @@ module.exports = function (config) {
         //Create model object in req.
         req.model = req.model || {};
 
+        //Create model-data object in req
+        req.model.data = req.model.data || {};
+
         //Set context path for client.
         req.model.contextPath = req.app.kraken && req.app.kraken.get('requestURI');
 
