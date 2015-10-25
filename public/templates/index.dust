@@ -1,5 +1,9 @@
 {>"layouts/master" /}
 
+{<title}
+    Boat - Welcome
+ {/title}
+
 {<body}
     <div id="main">
         <div id="robo">

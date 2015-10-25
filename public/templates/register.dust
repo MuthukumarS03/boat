@@ -1,5 +1,13 @@
 {>"layouts/master" /}
 
+{<title}
+    {@eq key="{data.regType}" value="customer"}
+        Register - Customer
+    {:else}
+        Register - Merchant
+    {/eq}
+{/title}
+
 {<link}
     <link rel="stylesheet" href="{contextPath}/css/register.css">
 {/link}
