@@ -124,23 +124,20 @@ module.exports = {
             },
             body: JSON.stringify(payload)
         }, function (err, res, body) {
-
             console.log('Customer-onboard  response : ' + body);
-
             if(err || !res || res.statusCode >= 300) {
-                req.model.viewName = 'errors/500';
-                next();
+                req.model.error = {
+                    message: 'Sorry, we are unable to process the request.'
+                }
             } else {
                 body = JSON.parse(body);
-                if(body && body.status === 'success') {
-                    next();
-                } else {
+                if(body && body.status !== 'success') {
                     req.model.error = {
-                        message: body.errorMessage
+                        message: "Registration failed. Please try again later."
                     }
-                    next();
                 }
             }
+            next();
         });
     }
 };
