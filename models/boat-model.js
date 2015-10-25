@@ -52,18 +52,20 @@ module.exports = {
 
                     request.post({
                         url: createOrderUrl,
-                        formData: {
+                        body: JSON.stringify({
                             bt_customer_id: bt_customer_id,
                             payment_method_token: paymentMethodToken,
                             item_upc: item_upc
+                        }),
+                        headers: {
+                            'Content-Type': 'application/json'
                         }
                     }, function (err, res, body) {
-                       //TODO
+                       console.log('Error : ' + err);
+                        console.log('Error : ' + res);
+                        console.log('Error : ' + body);
                         next();
                     });
-
-
-
                 });
 
             }
