@@ -75,21 +75,20 @@ module.exports = {
 
             console.log('Merchant-onboard  response : ' + body);
 
-            if(err || !res || res.statusCode >= 300) {
-                if (err || !res || res.statusCode >= 300) {
+            if (err || !res || res.statusCode >= 300) {
+                req.model.error = {
+                    message: 'Sorry, we are unable to process the request.'
+                }
+            } else {
+                body = JSON.parse(body);
+                if (body && body.status !== 'success') {
                     req.model.error = {
-                        message: 'Sorry, we are unable to process the request.'
-                    }
-                } else {
-                    body = JSON.parse(body);
-                    if (body && body.status !== 'success') {
-                        req.model.error = {
-                            message: "Registration failed. Please try again later."
-                        }
+                        message: "Registration failed. Please try again later."
                     }
                 }
-                next();
             }
+            next();
+
         });
     }
 };
