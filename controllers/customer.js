@@ -30,5 +30,9 @@ module.exports = {
                 customerModel.loadCustomerRegisterData(req, next);
             }
         });
+    },
+
+    onBoard: function (req, res, next) {
+        customerModel.onBoardCustomer(req, next);
     }
 }

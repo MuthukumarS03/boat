@@ -5,35 +5,43 @@
 {/link}
 
 {<body}
-    <div id="register" {?clientToken}data-client-token={clientToken|s}{/clientToken}>
+    <div id="register"
+        {?clientToken}data-client-token="{clientToken|s}"{/clientToken}
+        data-reg-type="{data.regType|s}"
+    >
             <h2 class="heading"> Customer Register </h2>
             <div class="line"> </div>
 
-            <div id="feedback" class="hide"></div>
+            <div class="section">
+                <div class="label"></div>
+                <div class = "detail">
+                    <div id="feedback" class="hide"></div>
+                </div>
+            </div>
 
             <div class="section">
                 <div class="label"> First Name </div>
                 <div class = "detail">
-                    <input id="firstName" class="textInput" type="text" placeholder="First Name"/>
+                    <input id="firstName" class="textInput" type="text" placeholder="First Name" value="Muthukumar"/>
                 </div>
             </div>
             <div class="section">
                 <div class="label"> Last Name </div>
                 <div class = "detail">
-                    <input id="lastName" class="textInput" type="text" placeholder="Last Name"/>
+                    <input id="lastName" class="textInput" type="text" placeholder="Last Name" value="Sudalaiyandi"/>
                 </div>
             </div>
             <div class="section">
                 <div class="label"> Email </div>
                 <div class = "detail">
-                    <input id="email" class="textInput" type="text" placeholder="Email"/>
+                    <input id="email" class="textInput" type="text" placeholder="Email" value="Muthu@gmail.com"/>
                 </div>
             </div>
             <div class="section">
                 <div class="label"> Address </div>
                 <div class = "detail">
-                    <input id="street" class="textInput" type="text" placeholder="Street Name and Apt"/>
-                    <input id="city" class="textInput addressField" type="text" placeholder="City"/>
+                    <input id="street" class="textInput" type="text" placeholder="Street Name and Apt" value="3970 The Woods Dr"/>
+                    <input id="city" class="textInput addressField" type="text" placeholder="City" value="San Jose"/>
                     <div>
                     <select id="state" class="selectDropdown addressField">
                         {#data.states}
@@ -41,20 +49,20 @@
                         {/data.states}
                     </select>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <input id="zipcode" class="textInput addressField" type="text" placeholder="Zip Code" maxlength="5"/>
+                    <input id="zipcode" class="textInput addressField" type="text" placeholder="Zip Code" maxlength="5"  value="12345"/>
                     </div>
                 </div>
             </div>
             <div class="section">
                 <div class="label"> Phone </div>
                 <div class = "detail">
-                    <input id="phone" class="textInput" type="text" placeholder="Phone"/>
+                    <input id="phone" class="textInput" type="text" placeholder="Phone" value="1234567890"/>
                 </div>
             </div>
             <div class="section">
                 <div class="label"> Credit Card </div>
                 <div class = "detail">
-                    <input id="ccNo" class="textInput" type="text" placeholder="Credit Card number" maxlength=16/>
+                    <input id="ccNo" class="textInput" type="text" placeholder="Credit Card number" maxlength=16  value="4111111111111111"/>
                 </div>
             </div>
             <div class="section">
@@ -76,20 +84,20 @@
             <div class="section">
                 <div class="label"> CVV </div>
                 <div class = "detail">
-                    <input id="cvv" class="textInput" type="text" placeholder="CVV" maxlength=3/>
+                    <input id="cvv" class="textInput" type="text" placeholder="CVV" maxlength=3 value="123"/>
                 </div>
             </div>
             <div class="section">
                 <div class="label"> Name on Card </div>
                 <div class = "detail">
-                    <input id="nameOnCard" class="textInput" type="text" placeholder="Name on Credit Card"/>
+                    <input id="nameOnCard" class="textInput" type="text" placeholder="Name on Credit Card" value="Muthukumar Sudalaiyandi"/>
                 </div>
             </div>
 
             <div class="section">
                 <div class="label"> Add device MAC </div>
                 <div class = "detail">
-                    <input id="deviceMac" class="textInput" type="text" placeholder="Device MAC Id"/>
+                    <input id="deviceMac" class="textInput" type="text" placeholder="Device MAC Id" value="12:23:34:45:56:67"/>
                 </div>
             </div>
             <div class="section">

@@ -14,6 +14,16 @@ module.exports = function (router) {
 
     router.get('/register/customer', customerController.registerView, responses.renderHTMLandJSON);
 
+    //router.post('/customer/onboard', function (req, res) {
+    //    console.log('Customer : ' + JSON.stringify(req.body));
+    //    res.json({});
+    //});
+
+    router.post('/customer/onboard', customerController.onBoard, responses.renderJSON);
+
+
+    router.post('/order/create', boatController.createOrder, responses.renderJSON);
+
     // TODO: add function to check logged-in and decide dashboard page or login page.
     //router.get('/customer', )
 

@@ -5,7 +5,8 @@
 
 'use strict';
 
-var _ = require('underscore');
+var _ = require('underscore'),
+    boatModel = require('../models/boat-model');
 
 module.exports = {
 
@@ -18,6 +19,11 @@ module.exports = {
         _.extend(req.model, model);
 
         next();
+    },
+
+    createOrder: function (req, res, next) {
+        boatModel.createOrder(req, res, next);
+
     }
 
 };

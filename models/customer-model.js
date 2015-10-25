@@ -5,35 +5,46 @@
 
 'use strict;'
 
-var _ = require('underscore');
+var _ = require('underscore'),
+    request = require('request');
 
 
 
 function getItems(req, callback) {
 
     //TODO: Make api call to get items.
-    var itemsList = [
-        {
-            "item_id": "1",
-            "item_upc": "123",
-            "item_name": "COKE",
-            "item_desc": "BLACK"
-        },
-        {
-            "item_id": "2",
-            "item_upc": "1234",
-            "item_name": "FANTA",
-            "item_desc": "ORANGE"
-        },
-        {
-            "item_id": "3",
-            "item_upc": "12345",
-            "item_name": "SPRITE",
-            "item_desc": "GREEN"
-        }
-    ];
+    //var itemsList = [
+    //    {
+    //        "item_id": "1",
+    //        "item_upc": "123",
+    //        "item_name": "COKE",
+    //        "item_desc": "BLACK"
+    //    },
+    //    {
+    //        "item_id": "2",
+    //        "item_upc": "1234",
+    //        "item_name": "FANTA",
+    //        "item_desc": "ORANGE"
+    //    },
+    //    {
+    //        "item_id": "3",
+    //        "item_upc": "12345",
+    //        "item_name": "SPRITE",
+    //        "item_desc": "GREEN"
+    //    }
+    //];
+    //callback(itemsList);
 
-    callback(itemsList);
+    var itemsUrl = req.app.kraken.get('urls').getItemsUrl;
+
+    console.log('itemsUrl : ' + itemsUrl);
+
+    request.get({
+        url: itemsUrl
+    }, function (err, res, body){
+        var jsonBody = JSON.parse(body);
+        callback(jsonBody.item_list);
+    });
 }
 
 
@@ -59,6 +70,7 @@ module.exports = {
         });
 
         registrationData = {
+            regType: 'customer',
             states: states,
             expMonths: expMonths,
             expYears: expYears
@@ -76,10 +88,59 @@ module.exports = {
 
             next();
         });
+    },
+
+    onBoardCustomer: function(req, next) {
+        var onBoardCustomerUrl = req.app.kraken.get('urls').onBoardCustomerUrl,
+            customer = req.body;
+
+        console.log('Customer : ' + JSON.stringify(customer.firstName));
 
 
+        var payload = {
+            firstName: customer.firstName,
+            lastName: customer.lastName,
+            email: customer.email,
+            phone: customer.phone,
+            macId: customer.deviceMac,
+            itemId: customer.itemId,
+            paymentMethodNonce: customer.paymentMethodNonce,
+            addresses: [ {
+                streetAddress: customer.street,
+                extendedAddress: '',
+                locality: customer.city,
+                region: customer.state,
+                postalCode: customer.zipcode
+            }]
+        };
 
+        console.log('Customer on-board payload : ' + JSON.stringify(payload));
+
+        request.post({
+            url: onBoardCustomerUrl,
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify(payload)
+        }, function (err, res, body) {
+
+            console.log('Customer-onboard  response : ' + body);
+
+            if(err || !res || res.statusCode >= 300) {
+                req.model.viewName = 'errors/500';
+                next();
+            } else {
+                body = JSON.parse(body);
+                if(body && body.status === 'success') {
+                    next();
+                } else {
+                    req.model.error = {
+                        message: body.errorMessage
+                    }
+                    next();
+                }
+            }
+        });
     }
-
-
 };
