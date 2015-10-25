@@ -73,24 +73,23 @@ module.exports = {
             body: JSON.stringify(payload)
         }, function (err, res, body) {
 
-            console.log('Customer-onboard  response : ' + body);
+            console.log('Merchant-onboard  response : ' + body);
 
             if(err || !res || res.statusCode >= 300) {
-                req.model.viewName = 'errors/500';
-                next();
-            } else {
-                body = JSON.parse(body);
-                if(body && body.status === 'success') {
-                    next();
-                } else {
+                if (err || !res || res.statusCode >= 300) {
                     req.model.error = {
-                        message: body.errorMessage
+                        message: 'Sorry, we are unable to process the request.'
                     }
-                    next();
+                } else {
+                    body = JSON.parse(body);
+                    if (body && body.status !== 'success') {
+                        req.model.error = {
+                            message: "Registration failed. Please try again later."
+                        }
+                    }
                 }
+                next();
             }
         });
-
-        next();
     }
 };
