@@ -1,0 +1,19 @@
+<div id="footer">
+    <div class="footer-content">
+        <div class="footer-primary-links">
+            <ul>
+                <li> {@pre type="content" key="footer.team"/} </li>
+                <li> {@pre type="content" key="footer.aboutUs"/} </li>
+                <li> {@pre type="content" key="footer.security"/} </li>
+                <li> {@pre type="content" key="footer.product"/} </li>
+                <li> {@pre type="content" key="footer.blog"/} </li>
+                <li> {@pre type="content" key="footer.contactUs"/} </li>
+            </ul>
+        </div>
+        <div class="footer-secondary-links">
+            <ul>
+                <li> {@pre type="content" key="footer.copyrights"/} {@pre type="content" key="footer.company"/}</li>
+            </ul>
+        </div>
+    </div>
+</div>

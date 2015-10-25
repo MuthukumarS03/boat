@@ -31,5 +31,9 @@ module.exports = function (router) {
     //router.get('/customer', )
 
     router.get('/', boatController.handleView, responses.renderHTMLandJSON) ;
+    router.get('/*', function (req, res){
+        var baseURI = req.app.kraken.get('requestURI');
+        res.redirect(baseURI);
+    });
 
 };

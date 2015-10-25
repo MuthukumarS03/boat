@@ -1,0 +1,13 @@
+<div id="header" role="banner">
+    <div class="header-content">
+        <div class="logo-title">
+            <ul>
+               <li><img src="{contextPath}/img/boat_header_logo.png"/> </li>
+                <li class="title">{@pre type="content" key="header.title"/}</li>
+            </ul>
+        </div>
+        <div class="buttons">
+            <a href="{contextPath}/login" class="btn primary login">{@pre type="content" key="header.login"/}</a>
+        </div>
+    </div>
+ </div>

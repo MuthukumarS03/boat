@@ -11,9 +11,13 @@
     </head>
     <body>
 
+        {>"layouts/header" /}
+
         <div id="wrapper">
             {+body /}
         </div>
+
+        {>"layouts/footer" /}
 
         <script data-main="{contextPath}/js/app" src="{contextPath}/components/requirejs/require.js"></script>
     
