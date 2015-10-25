@@ -1,2 +1,2 @@
 # boat
-Bot Ordering and AuTomatic payments
+Bot Ordering and AuTomated payments
