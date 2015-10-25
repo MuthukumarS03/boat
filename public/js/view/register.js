@@ -147,7 +147,7 @@ define([
                 _.each(_.keys(validationError), function(errorField) {
                     this.$('#'+errorField).addClass('hasError');
                 }.bind(this));
-                //this.$('#feedback').addClass('show errorMsg').removeClass('hide').text('Please enter all required values.');
+                this.$('#feedback').addClass('show errorMsg').removeClass('hide').text('Please enter all required values.');
                 return;
             }
 
