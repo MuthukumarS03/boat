@@ -52,7 +52,6 @@ define([
                 type: this.$el.data('regType')
             });
             this.type = this.model.get('type');
-            console.log('regType : ' + this.model.get('type'));
         },
 
         validateErrorField: function (event) {
@@ -121,10 +120,12 @@ define([
         },
 
         onSubmitError: function (model, response, message) {
+            this.toggleLoading(false);
             this.$('#feedback').addClass('show errorMsg').removeClass('hide').text(message);
         },
 
         onSubmitSuccess: function () {
+            this.toggleLoading(false);
             this.$('#feedback').addClass('show successMsg').removeClass('hide').text('Registration Successful.');
         },
 
@@ -154,6 +155,9 @@ define([
             this.listenToOnce(this.model, 'error', this.onSubmitError);
             this.listenToOnce(this.model, 'sync', this.onSubmitSuccess);
 
+            // Show loading icon.
+            this.toggleLoading(true);
+
             if(this.type ===  'customer') {
                 console.log('creating payment nonce')
                 this.getPaymentMethodNonce(function (nonce) {
@@ -172,6 +176,10 @@ define([
             } else {
                 this.model.save();
             }
+        },
+
+        toggleLoading: function(loading) {
+          this.$el.toggleClass('hasSpinner', loading);
         },
 
         afterRoute: function () {
