@@ -10,6 +10,6 @@
 
   "onBoardMerchantUrl": "http://10.101.1.180:8080/boat/onboarding/merchant",
 
-  "createOrderUrl": "http://10.101.2.122:8080/hackathon/order/create"
+  "createOrderUrl": "http://10.101.1.180:8181/hackathon/order/create"
 
 }
