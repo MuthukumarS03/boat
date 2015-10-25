@@ -92,7 +92,7 @@ define([
                         required: true
                 },
                 dob: {
-                    pattern: '^\\d{1,2}\/\\d{1,2}\/\\d{4}$',
+                    pattern: '^\\d{4}-\\d{1,2}-\\d{1,4}$',
                         required: true
                 },
                 ssn: {

@@ -1,7 +1,7 @@
 <div class="section">
     <div class="label"> Date of Birth </div>
     <div class = "detail">
-        <input id="dob" class="textInput" type="text" placeholder="mm/dd/yyyy" value="06/05/1986"/>
+        <input id="dob" class="textInput" type="text" placeholder="yyyy-mm-dd" value="1986-06-25"/>
     </div>
 </div>
 <div class="section">
@@ -25,12 +25,12 @@
 <div class="section">
     <div class="label"> Bank Account Number </div>
     <div class = "detail">
-        <input id="bankAcctNo" class="textInput" type="text" placeholder="Bank Account Number"  value="2468901234"/>
+        <input id="bankAcctNo" class="textInput" type="text" placeholder="Bank Account Number"  value="1111222233336666"/>
     </div>
 </div>
 <div class="section">
     <div class="label"> Bank Routing Number </div>
     <div class = "detail">
-        <input id="bankRoutingNo" class="textInput" type="text" placeholder="Bank Routing Number"  value="89765456456"/>
+        <input id="bankRoutingNo" class="textInput" type="text" placeholder="Bank Routing Number"  value="071101307"/>
     </div>
 </div>
