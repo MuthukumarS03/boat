@@ -1,5 +1,12 @@
 {
     "requestURI": "/boat",
+    "urls": "import:./urls",
+
+    "btMerchantId": "xzy2672yq6ct227c",
+    "btPublicKey": "42hvjkd7gt3gk6q9",
+    "btPrivateKey": "812157ed805e2b9360dcb568a80d36ee",
+
+
     
     "express": {
         "view cache": false,
@@ -27,9 +34,7 @@
             }
         }
     },
-    
 
-    
     "i18n": {
         "contentPath": "path:./locales",
         "fallback": "en-US"

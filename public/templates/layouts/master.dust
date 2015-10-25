@@ -5,6 +5,8 @@
         <title>{+title /}</title>
     
         <link rel="stylesheet" href="{contextPath}/css/app.css">
+
+        {+link /}
     
     </head>
     <body>

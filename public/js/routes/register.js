@@ -20,7 +20,7 @@ define([
         loadView: function (args) {
             var name;
 
-            if (!this.myToolsView) {
+            if (!this.registerView) {
                 name = 'register';
 
                 this.showView({
@@ -28,7 +28,7 @@ define([
                     args: args,
                     afterRender: false,
                     callback: $.proxy(function(view) {
-                        this.myToolsView = view;
+                        this.registerView = view;
                         this.loadView( args);
                     }, this)
                 });

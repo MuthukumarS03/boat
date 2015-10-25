@@ -1,0 +1,72 @@
+#register {
+
+  .section {
+    margin: 20px 50px 0px 120px;
+    font-size: 14px;
+    display: table;
+  }
+  .label {
+    width: 250px;
+    display: table-cell;
+    padding-right: 40px;
+  }
+  .detail {
+    width: 500px;
+    display: table-cell;
+    align: left;
+  }
+
+.textInput, .selectDropdown {
+  height: 40px;
+  min-width:300px;
+  padding: 0 10px;
+  border: 1px solid #9da3a6;
+  background: #fff;
+  text-overflow: ellipsis;
+  border-radius: 5px;
+  box-shadow: none;
+  box-sizing: border-box;
+  color: #000;
+  font-size: 1em;
+  font-weight: 400;
+  &:focus {
+    border-color: #009cde;
+    outline: 0;
+  }
+}
+  .hasError {
+    border-color: #de746a;
+    color: #de746a;
+    &:focus {
+      border-color: #de746a;
+    }
+  }
+
+  .selectDropdown {
+    min-width: 100px;
+  }
+
+  .submitSection {
+    font-size: 14px;
+    width: 750px;
+    align:center;
+  }
+
+  .continue {
+    width: 300px;
+    //    margin-top: 10px;
+  }
+
+  .required {
+    font-style: italic;
+    font-size: 12px;
+  }
+
+  #zipcode {
+    min-width: 100px;
+    width: 110px;
+  }
+  .addressField {
+    margin-top: 5px;
+  }
+}

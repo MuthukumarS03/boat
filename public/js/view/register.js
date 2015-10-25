@@ -7,21 +7,27 @@
 define([
     'jquery',
     'underscore',
-    'BaseView'
+    'BaseView',
+    'backboneValidation'
 ], function ($, _, BaseView) {
 
     var RegisterView = BaseView.extend({
 
+        el: '#register',
+
         initialize: function () {
-            alert('inside registerview initialize');
+
         },
 
-        afterRoute: function () {
-            alert('inside registerview afterRoute');
-        }
 
+
+        afterRoute: function () {
+
+            //Bind backbone validation.
+            Backbone.Validation.bind(this);
+
+        }
     });
 
     return RegisterView;
-
 });
