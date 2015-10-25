@@ -36,7 +36,7 @@ module.exports = {
             } else {
                 custInfoBody = JSON.parse(custInfoBody);
                 console.log('Customer : ' + JSON.stringify(custInfoBody.customer));
-                var customer = body && body.customer,
+                var customer = custInfoBody && custInfoBody.customer,
                     bt_customer_id = customer && customer.bt_customer_id,
                     paymentMethodToken = customer && customer.payment_method_token,
                     itemId = custInfoBody && custInfoBody.device && custInfoBody.device.item_id;
@@ -89,7 +89,7 @@ module.exports = {
                                     if(err || !res || res.statusCode>=300 || !orderBody) {
                                         req.model = {
                                             status: 'failed',
-                                            reason: 'Unable to fetch item info.'
+                                            reason: 'Order failed.'
                                         }
                                     } else {
                                         req.model = {
