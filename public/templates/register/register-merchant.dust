@@ -1,0 +1,36 @@
+<div class="section">
+    <div class="label"> Date of Birth </div>
+    <div class = "detail">
+        <input id="dob" class="textInput" type="text" placeholder="mm/dd/yyyy" value="06/05/1986"/>
+    </div>
+</div>
+<div class="section">
+    <div class="label"> SSN </div>
+    <div class = "detail">
+        <input id="ssn" class="textInput" type="text" placeholder="Social Security Number" maxlength="9" value="123456789"/>
+    </div>
+</div>
+<div class="section">
+    <div class="label"> Tax Id </div>
+    <div class = "detail">
+        <input id="taxId" class="textInput" type="text" placeholder="Tax ID" maxlength="9" value="987654321"/>
+    </div>
+</div>
+<div class="section">
+    <div class="label"> Bank Name </div>
+    <div class = "detail">
+        <input id="bankName" class="textInput" type="text" placeholder="Bank Name"  value="Bank of America"/>
+    </div>
+</div>
+<div class="section">
+    <div class="label"> Bank Account Number </div>
+    <div class = "detail">
+        <input id="bankAcctNo" class="textInput" type="text" placeholder="Bank Account Number"  value="2468901234"/>
+    </div>
+</div>
+<div class="section">
+    <div class="label"> Bank Routing Number </div>
+    <div class = "detail">
+        <input id="bankRoutingNo" class="textInput" type="text" placeholder="Bank Routing Number"  value="89765456456"/>
+    </div>
+</div>

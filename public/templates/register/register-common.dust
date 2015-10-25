@@ -1,0 +1,40 @@
+<div class="section">
+    <div class="label"> First Name </div>
+    <div class = "detail">
+        <input id="firstName" class="textInput" type="text" placeholder="First Name" value="Muthukumar"/>
+    </div>
+</div>
+<div class="section">
+    <div class="label"> Last Name </div>
+    <div class = "detail">
+        <input id="lastName" class="textInput" type="text" placeholder="Last Name" value="Sudalaiyandi"/>
+    </div>
+</div>
+<div class="section">
+    <div class="label"> Email </div>
+    <div class = "detail">
+        <input id="email" class="textInput" type="text" placeholder="Email" value="Muthu@gmail.com"/>
+    </div>
+</div>
+<div class="section">
+    <div class="label"> Address </div>
+    <div class = "detail">
+        <input id="street" class="textInput" type="text" placeholder="Street Name and Apt" value="3970 The Woods Dr"/>
+        <input id="city" class="textInput addressField" type="text" placeholder="City" value="San Jose"/>
+        <div>
+        <select id="state" class="selectDropdown addressField">
+            {#data.states}
+                <option value="{.}">{.}</option>
+            {/data.states}
+        </select>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input id="zipcode" class="textInput addressField" type="text" placeholder="Zip Code" maxlength="5"  value="12345"/>
+        </div>
+    </div>
+</div>
+<div class="section">
+    <div class="label"> Phone </div>
+    <div class = "detail">
+        <input id="phone" class="textInput" type="text" placeholder="Phone" value="1234567890"/>
+    </div>
+</div>

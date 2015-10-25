@@ -1,0 +1,52 @@
+<div class="section">
+    <div class="label"> Credit Card </div>
+    <div class = "detail">
+        <input id="ccNo" class="textInput" type="text" placeholder="Credit Card number" maxlength=16  value="4111111111111111"/>
+    </div>
+</div>
+<div class="section">
+    <div class="label"> Expiration </div>
+    <div class="detail">
+        <select id="ccExpMonth" class="selectDropdown">
+            {#data.expMonths}
+                <option value="{month}">{name}</option>
+            {/data.expMonths}
+        </select>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <select id="ccExpYear" class="selectDropdown">
+            {#data.expYears}
+                <option value="{.}">{.}</option>
+            {/data.expYears}
+        </select>
+    </div>
+</div>
+<div class="section">
+    <div class="label"> CVV </div>
+    <div class = "detail">
+        <input id="cvv" class="textInput" type="text" placeholder="CVV" maxlength=3 value="123"/>
+    </div>
+</div>
+<div class="section">
+    <div class="label"> Name on Card </div>
+    <div class = "detail">
+        <input id="nameOnCard" class="textInput" type="text" placeholder="Name on Credit Card" value="Muthukumar Sudalaiyandi"/>
+    </div>
+</div>
+
+<div class="section">
+    <div class="label"> Add device MAC </div>
+    <div class = "detail">
+        <input id="deviceMac" class="textInput" type="text" placeholder="Device MAC Id" value="12:23:34:45:56:67"/>
+    </div>
+</div>
+<div class="section">
+    <div class="label"> Add device Item </div>
+    <div class = "detail">
+        <select id="itemId" class="selectDropdown">
+            <option value="">Select Item</option>
+            {#data.items}
+                <option value="{item_id}">{item_name}</option>
+            {/data.items}
+        </select>
+    </div>
+</div>

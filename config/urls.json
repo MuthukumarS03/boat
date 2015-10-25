@@ -1,15 +1,15 @@
 {
 
   "getItemByItemIdUrl": "http://10.101.1.180:8080/boat/item",
+
   "getItemsUrl": "http://10.101.1.180:8080/boat/items",
+
+  "getCustomerAndDeviceByMacIdUrl": "http://10.101.1.180:8080/boat/customer/macid",
 
   "onBoardCustomerUrl": "http://10.101.2.190:8888/customer/onboard",
 
-  "createOrderUrl": "http://10.101.2.122:8080/hackathon/order/create",
+  "onBoardMerchantUrl": "http://10.101.1.180:8080/boat/onboarding/merchant",
 
-  "getCustomerAndDeviceByMacIdUrl": "http://10.101.1.165:8080/boat/customer/macid"
-
-
-
+  "createOrderUrl": "http://10.101.2.122:8080/hackathon/order/create"
 
 }

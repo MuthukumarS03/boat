@@ -31,7 +31,15 @@ define([
             'focusout #cvv': 'validateErrorField',
             'focusout #nameOnCard': 'validateErrorField',
             'focusout #deviceMac': 'validateErrorField',
-            'focusout #itemId': 'validateErrorField'
+            'focusout #itemId': 'validateErrorField',
+
+            'focusout #businessName': 'validateErrorField',
+            'focusout #dob': 'validateErrorField',
+            'focusout #ssn': 'validateErrorField',
+            'focusout #taxId': 'validateErrorField',
+            'focusout #bankName': 'validateErrorField',
+            'focusout #bankAcctNo': 'validateErrorField',
+            'focusout #bankRoutingNo': 'validateErrorField'
 
         },
 
@@ -43,7 +51,8 @@ define([
             this.model.set({
                 type: this.$el.data('regType')
             });
-
+            this.type = this.model.get('type');
+            console.log('regType : ' + this.model.get('type'));
         },
 
         validateErrorField: function (event) {
@@ -75,15 +84,31 @@ define([
                 city: this.$('#city').val(),
                 state: this.$('#state').val(),
                 zipcode: this.$('#zipcode').val(),
-                phone: this.$('#phone').val(),
-                ccNo: this.$('#ccNo').val(),
-                ccExpMonth: this.$('#ccExpMonth').val(),
-                ccExpYear: this.$('#ccExpYear').val(),
-                cvv: this.$('#cvv').val(),
-                nameOnCard: this.$('#nameOnCard').val(),
-                deviceMac: this.$('#deviceMac').val(),
-                itemId: this.$('#itemId').val()
+                phone: this.$('#phone').val()
             });
+
+            if(this.type === 'customer'){
+                this.model.set({
+                    ccNo: this.$('#ccNo').val(),
+                    ccExpMonth: this.$('#ccExpMonth').val(),
+                    ccExpYear: this.$('#ccExpYear').val(),
+                    cvv: this.$('#cvv').val(),
+                    nameOnCard: this.$('#nameOnCard').val(),
+                    deviceMac: this.$('#deviceMac').val(),
+                    itemId: this.$('#itemId').val()
+                });
+            } else {
+                this.model.set({
+                    businessName: this.$('#businessName').val(),
+                    dob: this.$('#dob').val(),
+                    ssn: this.$('#ssn').val(),
+                    taxId: this.$('#taxId').val(),
+                    bankName: this.$('#bankName').val(),
+                    bankAcctNo: this.$('#bankAcctNo').val(),
+                    bankRoutingNo: this.$('#bankRoutingNo').val()
+
+                });
+            }
         },
 
         maskCCDetails: function () {
@@ -129,19 +154,24 @@ define([
             this.listenToOnce(this.model, 'error', this.onSubmitError);
             this.listenToOnce(this.model, 'sync', this.onSubmitSuccess);
 
-            this.getPaymentMethodNonce(function (nonce) {
+            if(this.type ===  'customer') {
+                console.log('creating payment nonce')
+                this.getPaymentMethodNonce(function (nonce) {
 
-                //Set nonce in the model
-                this.model.set('paymentMethodNonce',nonce);
+                    //Set nonce in the model
+                    this.model.set('paymentMethodNonce',nonce);
 
-                //Mask CC details from model after nonce is created. This is for security reason.
-                this.maskCCDetails();
+                    //Mask CC details from model after nonce is created. This is for security reason.
+                    this.maskCCDetails();
 
-                console.log('Model : ' + JSON.stringify(this.model.toJSON()));
+                    console.log('Model : ' + JSON.stringify(this.model.toJSON()));
 
-                // On successful validation submit the form values.
+                    // On successful validation submit the form values.
+                    this.model.save();
+                }.bind(this));
+            } else {
                 this.model.save();
-            }.bind(this));
+            }
         },
 
         afterRoute: function () {

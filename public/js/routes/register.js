@@ -14,7 +14,8 @@ define([
 
         routes: {
             '': 'showRegister',
-            'customer': 'showRegister'
+            'customer': 'showRegister',
+            'merchant': 'showRegister'
         },
 
         loadView: function (args) {

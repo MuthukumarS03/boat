@@ -12,6 +12,8 @@ module.exports = {
     //TODO: Handle all error scenarios.
     createOrder: function (req, res, next) {
 
+        console.log('req.body : '+ JSON.stringify(req.body));
+
         var macId = req.body.mac_id,
             getCustomerAndDeviceByMacIdUrl = req.app.kraken.get('urls').getCustomerAndDeviceByMacIdUrl + '/' + macId;
 
