@@ -1,15 +1,16 @@
 {
 
-  "getItemByItemIdUrl": "http://10.101.1.180:8080/boat/item",
+  "getItemByItemIdUrl": "http://10.103.62.182:8080/boat/item",
 
-  "getItemsUrl": "http://10.101.1.180:8080/boat/items",
+  "getItemsUrl": "http://10.103.62.182:8080/boat/items",
 
-  "getCustomerAndDeviceByMacIdUrl": "http://10.101.1.180:8080/boat/customer/macid",
+  "getCustomerAndDeviceByMacIdUrl": "http://10.103.62.182:8080/boat/customer/macid",
 
-  "onBoardCustomerUrl": "http://10.101.2.190:8888/customer/onboard",
+//  "onBoardCustomerUrl": "http://10.101.2.190:8888/customer/onboard",
+  "onBoardCustomerUrl": "http://localhost:8888/customer/onboard",
 
-  "onBoardMerchantUrl": "http://10.101.1.180:8080/boat/onboarding/merchant",
+  "onBoardMerchantUrl": "http://10.103.62.182:8080/boat/onboarding/merchant",
 
-  "createOrderUrl": "http://10.101.1.180:8181/hackathon/order/create"
+  "createOrderUrl": "http://10.103.62.182:8181/hackathon/order/create"
 
 }

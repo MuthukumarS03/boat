@@ -40,10 +40,18 @@ function getItems(req, callback) {
     console.log('itemsUrl : ' + itemsUrl);
 
     request.get({
-        url: itemsUrl
+        url: itemsUrl,
+        timeout: 1000
     }, function (err, res, body){
-        var jsonBody = JSON.parse(body);
-        callback(jsonBody.item_list);
+        console.log('error : ' + err);
+        console.log('ItemsList : ' + body);
+        if(err || !body || body.length === 0) {
+            callback([]);
+        }
+        if(body) {
+            var jsonBody = JSON.parse(body);
+            callback(jsonBody.item_list);
+        }
     });
 }
 
@@ -135,6 +143,8 @@ module.exports = {
                     req.model.error = {
                         message: "Registration failed. Please try again later."
                     }
+                } else {
+                    req.model = body;
                 }
             }
             next();
